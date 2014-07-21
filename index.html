@@ -32,12 +32,12 @@ var browser={
 
 // 跳转到兴趣圈
 function gotoInterest(interest_id){
-if(browser.versions.android){
-window.JavascriptInterface.gotoInterest(interest_id);
-} else if(browser.versions.ios) {
-var url = "JavascriptInterface.gotoInterest:" + interest_id;
-document.location = url;
-}
+	if(browser.versions.android){
+		window.JavascriptInterface.gotoInterest(interest_id);
+	} else if(browser.versions.ios) {
+		var url = "JavascriptInterface.gotoInterest:" + interest_id;
+		document.location = url;
+	}
 }
 </script>
 
