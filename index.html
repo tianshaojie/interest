@@ -63,12 +63,12 @@ function getFictionContent(id, start, offset){
 
 // 回显小说索引
 function setFictionIndex(str){
-	alert(str);
+	document.getElementById("callback").html(str);
 }
 
 // 回显小说内容
 function setFictionContent(str){
-	alert(str);
+	document.getElementById("callback").html(str);
 }
 
 </script>
@@ -94,7 +94,7 @@ function setFictionContent(str){
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-	
+		
 		<div>
 		<a href="javascript:void(0)" onclick="gotoInterest(2)">兴趣圈：花儿与少年</a>
 		</div>
@@ -102,6 +102,7 @@ function setFictionContent(str){
 		<div style="margin-top:20px;">
 		<a href="javascript:void(0)" onclick="gotoInterest(27)">兴趣圈：北京北京</a>
 		</div>
+		
 		
 		<div style="margin-top:20px;">
 		<a href="javascript:void(0)" onclick="getFictionIndex('template')">调用小说索引接口</a>
@@ -111,6 +112,9 @@ function setFictionContent(str){
 		<a href="javascript:void(0)" onclick="getFictionContent('template', 2, 8)">调用小说章节接口</a>
 		</div>
 	
+		<div style="margin-top:20px;" id="callback">
+			内容：
+		</div>
       <section id="main_content" class="inner">
         <h3>
 <a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
