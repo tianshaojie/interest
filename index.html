@@ -56,7 +56,7 @@ function getFictionContent(id, start, offset){
 	if(browser.versions.android){
 		window.JavascriptInterface.getFictionContent(id, start, offset);
 	} else if(browser.versions.ios) {
-		var url = "JavascriptInterface.getFictionContent:" + id + ":" + start + ":" offset;
+		var url = "JavascriptInterface.getFictionContent:" + id + ":" + start + ":" + offset;
 		document.location = url;
 	}
 }
