@@ -39,6 +39,27 @@ function gotoInterest(interest_id){
 		document.location = url;
 	}
 }
+
+// 获得小说索引
+function getFictionIndex(id){
+	if(browser.versions.android){
+		window.JavascriptInterface.getFictionIndex(id);
+	} else if(browser.versions.ios) {
+		var url = "JavascriptInterface.getFictionIndex:" + id;
+		document.location = url;
+	}
+}
+
+
+// 获得小说内容
+function getFictionContent(id, start, offset){
+	if(browser.versions.android){
+		window.JavascriptInterface.getFictionContent(id, start, offset);
+	} else if(browser.versions.ios) {
+		var url = "JavascriptInterface.getFictionContent:" + id + ":" + start + ":" offset;
+		document.location = url;
+	}
+}
 </script>
 
   </head>
@@ -64,17 +85,20 @@ function gotoInterest(interest_id){
     <div id="main_content_wrap" class="outer">
 	
 		<div>
-<a href="javascript:void(0)" onclick="gotoInterest(2)">花儿与少年</a>
-</div>
+		<a href="javascript:void(0)" onclick="gotoInterest(2)">兴趣圈：花儿与少年</a>
+		</div>
 
-<div style="margin-top:20px;">
-<a href="javascript:void(0)" onclick="gotoInterest(27)">北京北京</a>
-<a href="javascript:void(0)" onclick="gotoInterest(27)">北京北京</a>
-</div>
-
-<div>
-<a href="http://tianshaojie.github.io/interest/other.html">other.html</a>
-</div>
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="gotoInterest(27)">兴趣圈：北京北京</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="getFictionIndex('template')">调用小说索引接口</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="getFictionContent('template', 2, 8)">调用小说章节接口</a>
+		</div>
 	
       <section id="main_content" class="inner">
         <h3>
