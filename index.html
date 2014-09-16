@@ -76,7 +76,7 @@ function setFictionContent(str){
 function downloadFiction(id, name, image, length, url){
 	if(browser.versions.android){
 		window.JavascriptInterface.downloadFiction(id, name, image, length, url);
-	} else if(browser.versions.ios) 
+	} else if(browser.versions.ios) {
 		var url = "JavascriptInterface.downloadFiction:" + id + ":" + name + ":" + image + ":" + length + ":" + url;
 		document.location = url;
 	}
