@@ -110,9 +110,11 @@ function testDownLoadVideo() {
  var id = '1', name='视频模版', 
  image = 'http://souyue-image.b0.upaiyun.com/newspic/list/50/47/4205047c2e6e66a80f9_android.jpg', 
  length = 23298170 ;
- var urls =['http://103.29.134.224/d3api2/srp/1365070268951.mp4', 
- 	'http://103.29.134.224/d3api2/srp/1365070285923.mp4', 
- 	'http://103.29.134.224/d3api2/srp/1365070453555.mp4'];
+  var urls = [
+ 	{url:'http://103.29.134.224/d3api2/srp/1365070268951.mp4', length:'6580937'},
+ 	{url:'http://103.29.134.224/d3api2/srp/1365070285923.mp4', length:'9783345'},
+ 	{url:'http://103.29.134.224/d3api2/srp/1365070453555.mp4', length:'6933888'}
+ ];
  downloadVideo(id, name, image, length, urls);
                            
 }
