@@ -87,7 +87,10 @@ function downloadVideo(id, name, image, length, urls){
 	if(browser.versions.android){
 		window.JavascriptInterface.downloadVideo(id, name, image, length, urls);
 	} else if(browser.versions.ios) {
-		var url = "JavascriptInterface.downloadVideo:" + id + ":" + name + ":" + image + ":" + length + ":" + urls;
+		var obj = {id:id, name:name, image:image, length:length, urls:urls};
+		var objStr = JSON.stringify(obj);
+		var url = "JavascriptInterface.downloadVideo:" + objStr;
+		//var url = "JavascriptInterface.downloadVideo:" + id + ":" + name + ":" + image + ":" + length + ":" + urls;
 		document.location = url;
 	}
 }
@@ -115,8 +118,8 @@ function testDownLoadVideo() {
  	{"url":"http://103.29.134.224/d3api2/srp/1365070285923.mp4", "length":"9783345"},
  	{"url":"http://103.29.134.224/d3api2/srp/1365070453555.mp4", "length":"6933888"}
  ];
- var urlsStr = JSON.stringify(urls);
- downloadVideo(id, name, image, length, urlsStr);
+ // var urlsStr = JSON.stringify(urls);
+ downloadVideo(id, name, image, length, urls);
                            
 }
                            
