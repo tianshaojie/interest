@@ -84,6 +84,8 @@ function downloadFiction(id, name, image, length, url){
 
 // 视频下载
 function downloadVideo(id, name, image, length, urls){
+	var obj1 = {id:id, name:name, image:image, length:length, urls:urls};
+	var objStr1 = JSON.stringify(obj1);
 	if(browser.versions.android){
 		window.JavascriptInterface.downloadVideo(id, name, image, length, urls);
 	} else if(browser.versions.ios) {
