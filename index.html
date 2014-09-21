@@ -125,6 +125,21 @@ function testDownLoadVideo() {
  downloadVideo(id, name, image, length, urls);
                            
 }
+
+function testDownLoadVideo1() {
+                           
+ var id = "1", name="断点续传模版", 
+  image = "http://souyue-image.b0.upaiyun.com/newspic/list/50/47/4205047c2e6e66a80f9_android.jpg", 
+ length = "23298170";
+  var urls = [
+ 	{"http://mapdownload.autonavi.com/mobilemap/mapdatav3/BeiJing.zip", "length":"6580937"},
+ 	{"http://mapdownload.autonavi.com/mobilemap/mapdatav3/ShangHai.zip", "length":"9783345"},
+ 	{"http://mapdownload.autonavi.com/mobilemap/mapdatav3/TianJin.zip", "length":"6933888"}
+ ];
+ // var urlsStr = JSON.stringify(urls);
+ downloadVideo(id, name, image, length, urls);
+                           
+}
                            
 </script>
 
@@ -179,6 +194,10 @@ function testDownLoadVideo() {
 		
 		<div style="margin-top:20px;">
 		<a href="javascript:void(0)" onclick="testDownLoadVideo();">视频下载接口</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testDownLoadVideo1();">断点续传下载接口</a>
 		</div>
 		
       <section id="main_content" class="inner">
