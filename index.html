@@ -75,9 +75,12 @@ function setFictionContent(str){
 // 小说下载
 function downloadFiction(id, name, image, length, url){
 	if(browser.versions.android){
-		window.JavascriptInterface.downloadFiction(id, name, image, length, url);
+		var urlsStr = JSON.stringify(url);
+		window.JavascriptInterface.downloadFiction(id, name, image, length, urlsStr);
 	} else if(browser.versions.ios) {
-		var url = "JavascriptInterface.downloadFiction:" + id + ":" + name + ":" + image + ":" + length + ":" + url;
+		var obj = {id:id, name:name, image:image, length:length, url:url};
+		var objStr = JSON.stringify(obj);
+		var url = "JavascriptInterface.downloadFiction:" + objStr;
 		document.location = url;
 	}
 }
@@ -102,11 +105,11 @@ function downloadVideo(id, name, image, length, urls){
                            
 function testDownLoadFiction() {
    
-  var id = '1', 
-  name='小说模版', 
-  image = 'http://souyue-image.b0.upaiyun.com/newspic/list/50/47/4205047c2e6e66a80f9_android.jpg', 
-  length = "77", 
-  url='http://103.29.134.224/d3api2/srp/template_1_1.0.txt';
+  var id = '3151045251625235736', 
+  name='完美世界', 
+  image = 'http://pic9.zhongsou.com/zfsimage/1ae7314742dec800', 
+  length = "5244049", 
+  url = {"index":{"length":"0","url":"http://103.29.135.92/msrp?cmd=453&nid=3151045251625235736"},"content":{"length":"5244049","url":"http://103.29.135.92/novelpack?d=3151045251625235736"}};
   downloadFiction(id, name, image, length, url);
                            
 }
