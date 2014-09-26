@@ -147,10 +147,9 @@ function testGetLocalCookie() {
                            
 }
                            
-function testDownLoadFiction() {
+function testDownLoadFiction(id) {
    
-  var id = '3151045251625235736', 
-  name='完美世界', 
+  var name='完美世界', 
   image = 'http://pic9.zhongsou.com/zfsimage/1ae7314742dec800', 
   length = "5244049", 
   url = {"index":{"length":"0","url":"http://103.29.135.92/msrp?cmd=453&nid=3151045251625235736"},"content":{"length":"5244049","url":"http://103.29.135.92/novelpack?d=3151045251625235736"}};
@@ -158,9 +157,9 @@ function testDownLoadFiction() {
                            
 }
 
-function testDownLoadVideo() {
+function testDownLoadVideo(id) {
                            
- var id = "1", name="视频模版", 
+ var name="视频模版", 
   image = "http://souyue-image.b0.upaiyun.com/newspic/list/50/47/4205047c2e6e66a80f9_android.jpg", 
  length = "23298170";
   var urls = [
@@ -236,15 +235,35 @@ function testDownLoadVideo1() {
 		<p/>
 		
 		<div style="margin-top:20px;">
-		<a href="javascript:void(0)" onclick="testDownLoadFiction();">小说下载接口</a>
+		<a href="javascript:void(0)" onclick="testDownLoadFiction('1');">小说下载接口 - 1</a>
 		</div>
 		
 		<div style="margin-top:20px;">
-		<a href="javascript:void(0)" onclick="testDownLoadVideo();">视频下载接口</a>
+		<a href="javascript:void(0)" onclick="testDownLoadFiction('2');">小说下载接口 - 2</a>
 		</div>
 		
 		<div style="margin-top:20px;">
-		<a href="javascript:void(0)" onclick="testDownLoadVideo1();">断点续传下载接口</a>
+		<a href="javascript:void(0)" onclick="testDownLoadFiction('3');">小说下载接口 - 3</a>
+		</div> 
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testDownLoadVideo('1');">视频下载接口 - 1</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testDownLoadVideo('2');">视频下载接口 - 2</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testDownLoadVideo('3');">视频下载接口 - 3</a>
+		</div> 
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testDownLoadVideo1('4');">断点续传下载接口 - 1</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testDownLoadVideo1('5');">断点续传下载接口 - 2</a>
 		</div>
 		
 		<div style="margin-top:20px;">
