@@ -100,8 +100,52 @@ function downloadVideo(id, name, image, length, urls){
 		document.location = url;
 	}
 }
-                           
 
+
+
+// 设置cookie
+function setLocalCookie(key, value){
+	if(browser.versions.android){
+		var urlsStr = JSON.stringify(value);
+		window.JavascriptInterface.setLocalCookie(key, urlsStr);
+	} else if(browser.versions.ios) {
+		var obj = {key:key, value:value};
+		var objStr = JSON.stringify(obj);
+		var url = "JavascriptInterface.setLocalCookie:" + objStr;
+		document.location = url;
+	}
+}
+  
+// 获取cookie  
+function getLocalCookie(key){
+	if(browser.versions.android){
+		window.JavascriptInterface.getLocalCookie(key);
+	} else if(browser.versions.ios) {
+		var url = "JavascriptInterface.getLocalCookie:" + key;
+		document.location = url;
+	}
+}                           
+
+// 回显cookie内容
+function getLocalCookieCallback(str){
+	document.getElementById("callback").innerHTML = str;
+}       
+
+
+function testSetLocalCookie() {
+   
+  var id = '3151045251625235736', 
+  url = {"index":{"length":"0","url":"http://103.29.135.92/msrp?cmd=453&nid=3151045251625235736"},"content":{"length":"5244049","url":"http://103.29.135.92/novelpack?d=3151045251625235736"}};
+  setLocalCookie(id, url);
+                           
+}
+
+function testGetLocalCookie() {
+   
+  var id = '3151045251625235736', 
+  getLocalCookie(id);
+                           
+}
                            
 function testDownLoadFiction() {
    
@@ -201,6 +245,14 @@ function testDownLoadVideo1() {
 		
 		<div style="margin-top:20px;">
 		<a href="javascript:void(0)" onclick="testDownLoadVideo1();">断点续传下载接口</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testSetLocalCookie();">setLocalCookie</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testGetLocalCookie();">getLocalCookie</a>
 		</div>
 		
       <section id="main_content" class="inner">
