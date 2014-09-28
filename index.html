@@ -172,6 +172,19 @@ function testDownLoadVideo(id) {
                            
 }
 
+function testDownLoadSingleVideo(id) {
+                           
+ var name="单个视频模版", 
+  image = "http://souyue-image.b0.upaiyun.com/newspic/list/50/47/4205047c2e6e66a80f9_android.jpg", 
+ length = "6580937";
+  var urls = [
+{"url":"http://data.dajiubao.com/1365070268951.mp4", "length":"6580937"}
+];
+ // var urlsStr = JSON.stringify(urls);
+ downloadVideo(id, name, image, length, urls);
+                           
+}
+
 function testDownLoadVideo1() {
                            
  var id = "2", name="断点续传模版", 
@@ -265,6 +278,10 @@ function testDownLoadVideo1() {
 		<div style="margin-top:20px;">
 		<a href="javascript:void(0)" onclick="testDownLoadVideo1('5');">断点续传下载接口 - 2</a>
 		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="testDownLoadSingleVideo('6');">单个视频下载接口 - 1</a>
+		</div> 
 		
 		<div style="margin-top:20px;">
 		<a href="javascript:void(0)" onclick="testSetLocalCookie();">setLocalCookie</a>
