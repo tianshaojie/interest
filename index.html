@@ -199,6 +199,18 @@ function testDownLoadVideo1() {
  downloadVideo(id, name, image, length, urls);
                            
 }
+
+function iosDocumentLocation() {
+	var value = {"category":"showimage","index":0,"imgs":["http://zsimgtest.b0.upaiyun.com/15190268180757906719!srpcar1","http://zsimgtest.b0.upaiyun.com/4173581781897834597!srpcar1"]};
+	var urlsStr = JSON.stringify(value);
+	var encodeStr = encodeURIComponent(urlsStr);
+	if(browser.versions.android){
+		window.JavascriptInterface.onJSClick(urlsStr);
+	} else if(browser.versions.ios) {
+		var url = "souyue.onclick//" + encodeStr;
+		document.location = url;
+	}	
+}
                            
 </script>
 
@@ -293,6 +305,10 @@ function testDownLoadVideo1() {
 		
 		<div style="margin-top:20px;">
 		<a href="tel:400 800 6666">客服电话：400-800-6666</a>
+		</div>
+		
+		<div style="margin-top:20px;">
+		<a href="javascript:void(0)" onclick="iosDocumentLocation();">iosDocumentLocation</a>
 		</div>
 		
       <section id="main_content" class="inner">
