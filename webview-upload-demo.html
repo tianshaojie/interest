@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Kitkkat Webview</title>
+    <script type="text/ecmascript">
+        function chooseImage() {
+            window.lfJsObj.chooseImage();
+        }
+        
+        function chooseImgResult(encodedImage) {
+            var divImgZone = document.getElementById("imgZone");
+
+            var img = document.createElement("img");
+            img.height = 100;
+            img.width = 100;
+            img.src = "data:image/png;base64," + encodedImage;
+
+            divImgZone.appendChild(img);
+
+            var newElement = document.createElement("input");
+            newElement.type = "hidden";
+            newElement.name = "uploadImg" + j + i;
+            newElement.value = encodedImage;
+
+            form1.appendChild(newElement);
+
+            var btnSubmit = document.getElementById("mySubmit");
+            btnSubmit.disabled = false;
+        }
+
+    </script>
+</head>
+<body>
+    <form name="form1" id="form1" action="http://dev.henry.com.tw/MultipartFormData/FromBase64.aspx" method="post">
+        <input type="button" id="btnChoosePhoto" name="btnChoosePhoto" value="Pick Image" style="height:100px;width:200px;" onclick="chooseImage();" />
+        
+        <div id="imgZone"></div>
+        
+        <input type="button" id="mySubmit" value="submit" style="height:100px;width:200px;" onclick="this.disabled = true;form1.submit();" disabled="true" />
+        
+    </form>
+</body>
+</html>
