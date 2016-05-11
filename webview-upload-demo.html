@@ -14,14 +14,14 @@
             var img = document.createElement("img");
             img.height = 100;
             img.width = 100;
-            img.src = "data:image/png;base64," + encodedImage;
+            img.src = "data:image/png;base64," + encodedImage.Base64EncodedImage;
 
             divImgZone.appendChild(img);
 
             var newElement = document.createElement("input");
             newElement.type = "hidden";
             newElement.name = "uploadImg";
-            newElement.value = encodedImage;
+            newElement.value = encodedImage.Base64EncodedImage;
 
             form1.appendChild(newElement);
 
