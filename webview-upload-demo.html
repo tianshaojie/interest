@@ -14,14 +14,14 @@
             var img = document.createElement("img");
             img.height = 100;
             img.width = 100;
-            img.src = "data:image/png;base64," + encodedImage.Base64EncodedImage;
+            img.src = "data:image/png;base64," + encodedImage.base64Data;
 
             divImgZone.appendChild(img);
 
             var newElement = document.createElement("input");
             newElement.type = "hidden";
             newElement.name = "uploadImg";
-            newElement.value = encodedImage.Base64EncodedImage;
+            newElement.value = encodedImage.base64Data;
 
             form1.appendChild(newElement);
 
@@ -39,6 +39,7 @@
         
         <input type="button" id="mySubmit" value="submit" style="height:100px;width:200px;" onclick="this.disabled = true;form1.submit();" disabled="true" />
         
+        <br><br>
         <input type="file"/>
     </form>
 </body>
