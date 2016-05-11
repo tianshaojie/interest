@@ -10,7 +10,7 @@
         
         var lfCb;
         
-        lfCb.chooseImageResult = new Function(encodedImage) {
+        lfCb.chooseImageResult = function(encodedImage) {
             var divImgZone = document.getElementById("imgZone");
 
             var img = document.createElement("img");
@@ -31,7 +31,7 @@
             btnSubmit.disabled = false;
         }
         
-        lfCb.getVersionResult = new Function(version) {
+        lfCb.getVersionResult = function(version) {
             document.getElementById("version").html(version)
         }
 
