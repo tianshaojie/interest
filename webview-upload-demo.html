@@ -32,8 +32,8 @@
         }
         
         lfCb.getVersionResult = function(version) {
-            alert(version);
-            document.getElementById("version").html(version);
+            alert(JSON.stringify(version));
+            document.getElementById("version").text(JSON.stringify(version));
         }
 
     </script>
