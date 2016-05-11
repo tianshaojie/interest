@@ -8,7 +8,9 @@
             window.lfJsObj.chooseImage();
         }
         
-        window.lfCb.chooseImageResult = function(encodedImage) {
+        var lfCb = {};
+        
+        lfCb.chooseImageResult = function(encodedImage) {
             var divImgZone = document.getElementById("imgZone");
 
             var img = document.createElement("img");
@@ -29,7 +31,7 @@
             btnSubmit.disabled = false;
         }
         
-        window.lfCb.getVersionResult = function(version) {
+        lfCb.getVersionResult = function(version) {
             document.getElementById("version").html(version)
         }
 
