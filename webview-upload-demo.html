@@ -8,7 +8,9 @@
             window.lfJsObj.chooseImage();
         }
         
-        function chooseImageResult(encodedImage) {
+        var lfCb;
+        
+        lfCb.chooseImageResult = new Function(encodedImage) {
             var divImgZone = document.getElementById("imgZone");
 
             var img = document.createElement("img");
@@ -28,6 +30,10 @@
             var btnSubmit = document.getElementById("mySubmit");
             btnSubmit.disabled = false;
         }
+        
+        lfCb.getVersionResult = new Function(version) {
+            document.getElementById("version").html(version)
+        }
 
     </script>
 </head>
@@ -41,6 +47,9 @@
         
         <br><br>
         <input type="file"/>
+        
+        <input type="button" style="height:100px;width:200px;" onclick="getVersion();" /> 
+        <span id="version"></span>
     </form>
 </body>
 </html>
