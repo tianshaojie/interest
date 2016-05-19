@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Kitkkat Webview</title>
+    <script type="text/javascript">
+        function chooseImage() {
+            window.lfJsObj.chooseImage("1");
+        }
+        
+        var lfCb = {}; // WebView回掉传值对象
+        lfCb.chooseImgResult = function(encodedImage) {
+            var divImgZone = document.getElementById("imgZone");
+
+            var img = document.createElement("img");
+            img.height = 100;
+            img.width = 100;
+            img.src = encodedImage.base64Data;
+
+            divImgZone.appendChild(img);
+
+            var newElement = document.createElement("input");
+            newElement.type = "hidden";
+            newElement.name = "uploadImg" + j + i;
+            newElement.value = encodedImage;
+
+            form1.appendChild(newElement);
+
+            var btnSubmit = document.getElementById("mySubmit");
+            btnSubmit.disabled = false;
+        }
+
+
+        var shareStr = {title:"title", content:"content", image:"http://pic.cnblogs.com/face/865091/20151225100409.png"};
+        function invokeShareView() {
+            window.lfJsObj.invokeShareView(JSON.stringify(shareStr));
+        }
+
+    </script>
+</head>
+<body>
+    <label>上传图片</label>
+    <form name="form1" id="form1" action="" method="post">
+        <input type="button" id="btnChoosePhoto" name="btnChoosePhoto" value="选择图片" style="height:50px;width:200px;" onclick="chooseImage();" />
+        <div id="imgZone"></div> <br/>
+        <input type="button" id="mySubmit" value="submit" style="height:50px;width:200px;" onclick="this.disabled = true;form1.submit();" disabled="true"/>
+    </form>
+
+    <hr/>
+    <label>调用分享</label> <br/>
+    <input type="button" id="invokeShareView" name="invokeShareView" value="分享" style="height:50px;width:200px;" onclick="invokeShareView();" />
+</body>
+</html>
