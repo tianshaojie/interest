@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -36,6 +36,10 @@
             window.lfJsObj.invokeShareView(JSON.stringify(shareStr));
         }
 
+        function jumpToUserPage() {
+            window.lfJsObj.jumpToUserPage("816159374");
+        }
+
     </script>
 </head>
 <body>
@@ -49,5 +53,9 @@
     <hr/>
     <label>调用分享</label> <br/>
     <input type="button" id="invokeShareView" name="invokeShareView" value="分享" style="height:50px;width:200px;" onclick="invokeShareView();" />
+
+    <hr/>
+    <label>调起个人主页</label> <br/>
+    <input type="button" id="jumpToUserPage" name="jumpToUserPage" value="调起个人主页" style="height:50px;width:200px;" onclick="jumpToUserPage();" />
 </body>
 </html>
