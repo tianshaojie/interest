@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Kitkkat Webview</title>
+    <title>h5</title>
     <script type="text/javascript">
         function chooseImage() {
             window.lfJsObj.chooseImage("1");
@@ -66,6 +66,27 @@
         }
 
 
+        function isLogin() {
+            WebViewJavascriptBridge.callHandler(
+		        'isLogin'
+		        , ""
+		        , function(responseData) {
+		            toast(responseData);
+		            alert(responseData);
+		        }
+		    );
+        }
+
+        function toast(msg) {
+            WebViewJavascriptBridge.callHandler(
+		        'toast'
+		        , msg
+		        , function(responseData) {
+		            
+		        }
+		    );
+        }
+
     </script>
 </head>
 <body>
@@ -111,5 +132,16 @@
     <hr/>
     <label>来疯外部协议-个人主页：laifeng://someonepage/807977304</label> <br/>
     <input type="button" id="laifengSomeonepage" name="laifengSomeonepage" value="来疯外部协议-个人主页" style="height:50px;width:200px;" onclick="laifengSomeonepage();" />
+
+
+    <hr/>
+    <label>测试JsBridge-isLogin</label> <br/>
+    <input type="button" value="测试JsBridge-isLogin" style="height:50px;width:200px;" onclick="laifengSomeonepage();" />
+
+    <hr/>
+    <label>测试JsBridge-toast</label> <br/>
+    <input type="button" value="测试JsBridge-isLogin" style="height:50px;width:200px;" onclick="laifengSomeonepage();" />
+
+
 </body>
 </html>
