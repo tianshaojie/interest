@@ -89,6 +89,17 @@
     </script>
 </head>
 <body>
+
+    <label>测试登录态：isLogin()</label> <br/>
+    <input type="button" value="JsBridge.isLogin()" style="height:50px;width:200px;" onclick="isLogin();" />
+
+    <hr/>
+    
+    <label>测试Toast：toast(str)</label> <br/>
+    <input type="button" value="JsBridge.toast(1)" style="height:50px;width:200px;" onclick="toast('1');" />
+
+    <hr/>
+	
     <label>上传图片</label>
     <form name="form1" id="form1" action="" method="post">
         <input type="button" id="btnChoosePhoto" name="btnChoosePhoto" value="选择图片" style="height:50px;width:200px;" onclick="chooseImage();" />
@@ -131,18 +142,6 @@
     <hr/>
     <label>来疯外部协议-个人主页：laifeng://someonepage/807977304</label> <br/>
     <input type="button" id="laifengSomeonepage" name="laifengSomeonepage" value="来疯外部协议-个人主页" style="height:50px;width:200px;" onclick="laifengSomeonepage();" />
-
-
-    <hr/>
-    <label>测试JsBridge-isLogin</label> <br/>
-    <input type="button" value="测试JsBridge-isLogin" style="height:50px;width:200px;" onclick="isLogin();" />
-
-
-    <hr/>
-    
-    <label>测试JsBridge-toast</label> <br/>
-    <input type="button" value="测试JsBridge-toast(1)" style="height:50px;width:200px;" onclick="toast('1');" />
-
 
 </body>
 </html>
