@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>JsBridge</title>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+    .button:active {
+        background-color: #3e8e41;
+    }
+    </style>
+    <script type="text/javascript">
+        
+
+        function shareImage() {
+            var shareParam = {
+                "shareUrl":"",
+                "shareTitle":"founder",
+                "shareImageUrl":"",
+                "isShareImage":"true"
+            }
+            window.nativeObject.initShareParam(JSON.stringify(shareParam));
+        }
+    
+
+    </script>
+</head>
+<body>
+
+
+    <input type="button" class="button" value="WebView图片分享" onclick="shareImage();" />
+    
+
+</body>
+</html>
