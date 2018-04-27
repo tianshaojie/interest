@@ -20,11 +20,12 @@
     <script type="text/javascript">
         
 
-        function shareImage() {
+        function initShareImage() {
             var shareParam = {
-                "shareUrl":"",
+                "shareUrl":"https://www.foundersc.com",
                 "shareTitle":"founder",
-                "shareImageUrl":"",
+                "shareImageUrl":"https://raw.githubusercontent.com/tianshaojie/interest/gh-pages/images/DAB1A6BE76F5FF9572C7678A9B5E3421.jpg",
+                "[ageImageUrl":"https://raw.githubusercontent.com/tianshaojie/interest/gh-pages/images/DAB1A6BE76F5FF9572C7678A9B5E3421.jpg",
                 "isShareImage":"true"
             }
             window.nativeObject.initShareParam(JSON.stringify(shareParam));
@@ -33,10 +34,10 @@
 
     </script>
 </head>
-<body>
+<body onload="initShareImage()">
 
 
-    <input type="button" class="button" value="WebView图片分享" onclick="shareImage();" />
+    <input type="button" class="button" value="WebView图片分享" onclick="initShareImage();" />
     
 
 </body>
