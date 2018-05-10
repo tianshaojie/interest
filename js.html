@@ -31,11 +31,20 @@
             window.nativeObject.handleMsgWithParam("initShareParams" ,JSON.stringify(shareParam));
         }
     
+    	function shareImage() {
+            var shareParam = {
+                "shareUrl":"https://www.foundersc.com",
+                "shareTitle":"founder",
+                "shareImageUrl":"https://raw.githubusercontent.com/tianshaojie/interest/gh-pages/images/DAB1A6BE76F5FF9572C7678A9B5E3421.jpg",
+                "pageImageUrl":"https://raw.githubusercontent.com/tianshaojie/interest/gh-pages/images/DAB1A6BE76F5FF9572C7678A9B5E3421.jpg"
+            }
+            window.nativeObject.handleMsgWithParam("shareImage" ,JSON.stringify(shareParam));
+        }
     
-    
-    (function() {
-        window.nativeObject.showNavigationRightButton();
-     })();
+
+	    (function() {
+	        window.nativeObject.handleMsgWithParam("showNavigationRightButton", "");
+	     })();
     
 
     </script>
@@ -43,7 +52,7 @@
 <body onload="initShareImage()">
 
 
-    <input type="button" class="button" value="WebView图片分享" onclick="initShareImage();" />
+    <input type="button" class="button" value="WebView图片分享" onclick="shareImage();" />
     
 
 </body>
