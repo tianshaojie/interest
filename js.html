@@ -43,7 +43,7 @@
         function checkJsApi() {
             var apiList = ['getAppVersion', 'handleMsgWithParam.shareImage', 'test'];
             if(window.nativeObject.checkJsApi) {
-                window.nativeObject.checkJsApi(apiList);
+                window.nativeObject.checkJsApi(JSON.stringify(apiList));
             } else {
                 alert("未找到checkJsApi方法");
             }
