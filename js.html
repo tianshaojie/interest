@@ -18,7 +18,6 @@
     }
     </style>
     <script type="text/javascript">
-        
 
         function initShareImage() {
             var shareParam = {
@@ -40,7 +39,19 @@
             }
             window.nativeObject.handleMsgWithParam("shareImage" ,JSON.stringify(shareParam));
         }
-    
+
+        function checkJsApi() {
+            var apiList = ['getAppVersion', 'handleMsgWithParam.shareImage', 'test'];
+            if(window.nativeObject.checkJsApi) {
+                window.nativeObject.checkJsApi(apiList);
+            } else {
+                alert("未找到checkJsApi方法");
+            }
+        }    
+
+        function checkJsApiResult(String result) {
+            alert(result);
+        }
 
 	    (function() {
 	        window.nativeObject.handleMsgWithParam("showNavigationRightButton", "");
@@ -54,8 +65,9 @@
 	<br><br>
     <input type="button" class="button" value="WebView调起图片分享界面" onclick="shareImage();" /><br><br>
     
-	
     <a href="second.html" class="button" >进入二级链接</a><br><br>
+
+    <input type="button" class="button" value="checkJsApi" onclick="checkJsApi();" /><br><br>
 
 </body>
 </html>
