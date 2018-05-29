@@ -27,7 +27,7 @@
                 "pageImageUrl":"https://raw.githubusercontent.com/tianshaojie/interest/gh-pages/images/DAB1A6BE76F5FF9572C7678A9B5E3421.jpg",
                 "isShareImage":"true"
             }
-            window.nativeObject.handleMsgWithParam("initShareParams" ,JSON.stringify(shareParam));
+            window.nativeObject && window.nativeObject.handleMsgWithParam("initShareParams" ,JSON.stringify(shareParam));
         }
     
     	function shareImage() {
@@ -37,12 +37,12 @@
                 "shareImageUrl":"https://raw.githubusercontent.com/tianshaojie/interest/gh-pages/images/DAB1A6BE76F5FF9572C7678A9B5E3421.jpg",
                 "pageImageUrl":"https://raw.githubusercontent.com/tianshaojie/interest/gh-pages/images/DAB1A6BE76F5FF9572C7678A9B5E3421.jpg"
             }
-            window.nativeObject.handleMsgWithParam("shareImage" ,JSON.stringify(shareParam));
+            window.nativeObject && window.nativeObject.handleMsgWithParam("shareImage" ,JSON.stringify(shareParam));
         }
 
         function checkJsApi() {
             var apiList = ['getAppVersion', 'handleMsgWithParam.shareImage', 'test'];
-            if(window.nativeObject.checkJsApi) {
+            if(window.nativeObject) {
                 window.nativeObject.checkJsApi(JSON.stringify(apiList));
             } else {
                 alert("未找到checkJsApi方法");
@@ -53,8 +53,9 @@
             alert(result);
         }
 
+
 	    (function() {
-	        window.nativeObject.handleMsgWithParam("showNavigationRightButton", "");
+	        window.nativeObject && window.nativeObject.handleMsgWithParam("showNavigationRightButton", "");
 	     })();
     
 
