@@ -42,7 +42,7 @@
 
         function checkJsApi() {
             var apiList = ['getAppVersion', 'handleMsgWithParam.shareImage', 'test'];
-            if(window.nativeObject) {
+            if(window.nativeObject && window.nativeObject.checkJsApi) {
                 window.nativeObject.checkJsApi(JSON.stringify(apiList));
             } else {
                 alert("未找到checkJsApi方法");
@@ -51,24 +51,48 @@
 
         function checkJsApiResult(result) {
             alert(JSON.stringify(result));
-        }
+            var shareImageBtn = document.getElementById("shareImageBtn");
+            shareImageBtn.style.display = display;
 
-
-	    (function() {
-	        window.nativeObject && window.nativeObject.handleMsgWithParam("showNavigationRightButton", "");
-	     })();
-    
+            if(result && result['handleMsgWithParam.shareImage']) {
+                document.getElementById("shareImageBtn").style.display="block";
+            } else {
+                document.getElementById("shareImageBtn").style.display="none";
+            }
+        }    
 
     </script>
 </head>
 <body onload="initShareImage()">
 
 	<br><br>
-    <input type="button" class="button" value="WebView调起图片分享界面" onclick="shareImage();" /><br><br>
+    <input type="button" class="button" id="shareImageBtn" value="WebView调起图片分享界面" style="display:none;" onclick="shareImage();" /><br><br>
     
     <a href="second.html" class="button" >进入二级链接</a><br><br>
 
     <input type="button" class="button" value="checkJsApi" onclick="checkJsApi();" /><br><br>
 
 </body>
+
+
+<script type="text/javascript">
+
+
+    (function() {
+        // 显示右上角分享按钮
+        window.nativeObject && window.nativeObject.handleMsgWithParam("showNavigationRightButton", "");
+        
+        // 检查是否支持图片分享
+        var apiList = ['handleMsgWithParam.shareImage'];
+        if(window.nativeObject && window.nativeObject.checkJsApi) {
+            window.nativeObject.checkJsApi(JSON.stringify(apiList));
+        }
+        
+
+     })();
+
+
+</script>
+
+
 </html>
