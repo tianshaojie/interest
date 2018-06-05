@@ -51,10 +51,8 @@
 
         function checkJsApiResult(result) {
             alert(JSON.stringify(result));
-            var shareImageBtn = document.getElementById("shareImageBtn");
-            shareImageBtn.style.display = display;
 
-            if(result && result['handleMsgWithParam.shareImage']) {
+            if(result && result["handleMsgWithParam.shareImage"]) {
                 document.getElementById("shareImageBtn").style.display="block";
             } else {
                 document.getElementById("shareImageBtn").style.display="none";
