@@ -25,7 +25,8 @@
                 "shareTitle":"founder",
                 "shareImageUrl":"https://vii-img.oss-cn-beijing.aliyuncs.com/WechatIMG45.jpg",
                 "pageImageUrl":"https://vii-img.oss-cn-beijing.aliyuncs.com/WechatIMG44.jpg",
-                "isShareImage":"true"
+                "isShareImage":"true",
+                "sharePlatforms":["mini_program", "weixin_timeline", "qq", "qzone","weibo", "weixin_friend"]
             }
             window.nativeObject && window.nativeObject.handleMsgWithParam("initShareParams" ,JSON.stringify(shareParam));
         }
@@ -42,8 +43,12 @@
 
         function checkJsApi() {
             var apiList = ['getAppVersion', 'handleMsgWithParam.shareImage', 'test'];
+            
             if(window.nativeObject && window.nativeObject.checkJsApi) {
+
+
                 window.nativeObject.checkJsApi(JSON.stringify(apiList));
+
             } else {
                 alert("未找到checkJsApi方法");
             }
