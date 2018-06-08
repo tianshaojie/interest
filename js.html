@@ -19,18 +19,29 @@
     </style>
     <script type="text/javascript">
 
-        function initShareImage() {
+        function initShareParams() {
+            var shareParamMinProgram = {
+                "shareUrl":"https://www.foundersc.com",
+                "shareTitle":"标题-小程序分享测试",
+                "shareDesc":"内容-小程序分享测试",
+                "shareImageUrl":"https://vii-img.oss-cn-beijing.aliyuncs.com/WechatIMG45.jpg",
+                "miniProgramPath":"/pages/news/news"
+            }
+            window.nativeObject && window.nativeObject.handleMsgWithParam("initShareParamsMiniProgram" ,JSON.stringify(shareParam));
+
             var shareParam = {
                 "shareUrl":"https://www.foundersc.com",
-                "shareTitle":"founder",
+                "shareTitle":"标题-WebView分享测试",
+                "shareDesc":"内容-WebView分享测试",
                 "shareImageUrl":"https://vii-img.oss-cn-beijing.aliyuncs.com/WechatIMG45.jpg",
                 "pageImageUrl":"https://vii-img.oss-cn-beijing.aliyuncs.com/WechatIMG44.jpg",
                 "isShareImage":"true",
-                "miniProgramPath":"/pages/news/news",
                 "sharePlatforms":"wechatsession,miniprogram,wechattimeline,qqfriend,qzone,sinaweibo"
             }
             window.nativeObject && window.nativeObject.handleMsgWithParam("initShareParams" ,JSON.stringify(shareParam));
         }
+
+
     
     	function shareImage() {
             var shareParam = {
@@ -46,10 +57,7 @@
             var apiList = ['getAppVersion', 'handleMsgWithParam.shareImage', 'test'];
             
             if(window.nativeObject && window.nativeObject.checkJsApi) {
-
-
                 window.nativeObject.checkJsApi(JSON.stringify(apiList));
-
             } else {
                 alert("未找到checkJsApi方法");
             }
@@ -67,7 +75,7 @@
 
     </script>
 </head>
-<body onload="initShareImage()">
+<body onload="initShareParams();">
 
 	<br><br>
     <input type="button" class="button" id="shareImageBtn" value="WebView调起图片分享界面" style="display:none;" onclick="shareImage();" /><br><br>
