@@ -23,10 +23,10 @@
         function initShareParams() {
             var shareParamMinProgram = {
                 "shareUrl":"https://www.foundersc.com",
-                "shareTitle":"标题-小程序分享测试",
+                "shareTitle":"沪指冲高回落再创今年以来新低 工业富联逼近跌停",
                 "shareDesc":"内容-小程序分享测试",
-                "shareImageUrl":"https://vii-img.oss-cn-beijing.aliyuncs.com/WechatIMG45.jpg",
-                "miniProgramPath":"pages/message_detail/message_detail?scheme=fzzqxf%3a%2f%2fbrowser%2f%3ftitle%3dfoundersc%26url%3dhttps%3a%2f%2fwww.foundersc.com"
+                "shareImageUrl":"",
+                "miniProgramPath":"pages/message_detail/message_detail?scheme=fzzqxf%3a%2f%2fbrowser%2f%3ftitle%3dfoundersc%26url%3dhttps%3a%2f%2fapp.foundersc.com%2fapi%2fnewinfo%2fwww%2findex.html%23%2fcontent%2fNW20180614888499235%3fappId%3dxf%26appScheme%3dfzzqxf"
             }
             window.nativeObject && window.nativeObject.handleMsgWithParam("initShareParamsMiniProgram" ,JSON.stringify(shareParamMinProgram));
 
@@ -76,7 +76,7 @@
 
     </script>
 </head>
-<body onload="initShareParams();">
+<body>
 
 	<br><br>
     <input type="button" class="button" id="shareImageBtn" value="WebView调起图片分享界面" style="display:none;" onclick="shareImage();" /><br><br>
@@ -97,6 +97,8 @@
         // 显示右上角分享按钮
         window.nativeObject && window.nativeObject.handleMsgWithParam("showNavigationRightButton", "");
         
+        initShareParams();
+
         // 检查是否支持图片分享
         var apiList = ['handleMsgWithParam.shareImage'];
         if(window.nativeObject && window.nativeObject.checkJsApi) {
