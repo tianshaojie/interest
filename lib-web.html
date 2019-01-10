@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <title>JsBridge</title>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+    .button:active {
+        background-color: #3e8e41;
+    }
+    </style>
+    <script type="text/javascript">
+        function isLogin() {
+            WebViewJavascriptBridge.callHandler(
+                'isLogin'
+                , ""
+                , function(responseData) {
+                    toast(responseData);
+                }
+            );
+        }
+
+        function toast(msg) {
+            WebViewJavascriptBridge.callHandler(
+                'toast'
+                , msg
+                , function(responseData) {
+                    
+                }
+            );
+        }
+    </script>
+</head>
+<body>
+
+	<br>
+
+    <input type="button" class="button" value="JsBridge.isLogin()" onclick="JsBridge.isLogin();" /><br><br>
+
+    <input type="button" class="button" value="JsBridge.toast(1)" onclick="JsBridge.toast(1);" /><br><br>
+
+</body>
+</html>
