@@ -72,7 +72,23 @@
             } else {
                 document.getElementById("shareImageBtn").style.display="none";
             }
-        }    
+        }  
+
+        function routerH5() {
+            var params = {
+                "url":"https://www.foundersc.com",
+                "name":"founder"
+            }
+            window.nativeObject && window.nativeObject.handleMsgWithParam("router" ,JSON.stringify(params));
+        }
+
+        function routerNative() {
+            var params = {
+                "url":"fzzqxf://simtrade/trading",
+                "name":"模拟交易"
+            }
+            window.nativeObject && window.nativeObject.handleMsgWithParam("router" ,JSON.stringify(params));
+        }
 
     </script>
 </head>
@@ -90,6 +106,10 @@
     <a href="fzzqxm://browser/?title=foundersc&url=https://www.foundersc.com" class="button" >xm-scheme-browser</a><br><br>
 
     <a href="market://details?id=com.foundersc.app.xf&th_name=com.foundersc.app.xf" class="button" >Vivo商店测试</a><br><br>
+
+    <input type="button" class="button" value="Router跳转-H5" onclick="routerH5();" /><br><br>
+
+    <input type="button" class="button" value="Router跳转-Native" onclick="routerNative();" /><br><br>
 
 </body>
 
