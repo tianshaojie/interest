@@ -87,8 +87,36 @@
                 "url":"fzzqxf://simtrade/trading",
                 "name":"模拟交易"
             }
-            window.nativeObject && window.nativeObject.handleMsgWithParam("router" ,JSON.stringify(params));
+            window.nativeObject.handleMsgWithParam("router" ,JSON.stringify(params));
         }
+
+        function testRouterNative() {
+            var params = {
+                "url":"fzzqxf://simtrade/trading",
+                "name":"模拟交易"
+            }
+            h5RouterApp(params);
+        }
+
+
+        function h5RouterApp(_params) {
+            if (isNative()) {
+                try {
+                    window.nativeObject && window.nativeObject.handleMsgWithParam("router", JSON.stringify(params));
+                } catch (e) {
+                    console.error(e);
+                }
+            } else {
+                alert("无法获取原生[nativeObject]对象");
+                console.warn('无法获取原生[nativeObject]对象');
+            }
+        }
+        function isNative() {
+            if (typeof (nativeObject) !== 'undefined') {
+                return true;
+            }
+            return false;
+        };
 
     </script>
 </head>
@@ -110,6 +138,8 @@
     <input type="button" class="button" value="Router跳转-H5" onclick="routerH5();" /><br><br>
 
     <input type="button" class="button" value="Router跳转-Native" onclick="routerNative();" /><br><br>
+
+    <input type="button" class="button" value="testRouterNative" onclick="testRouterNative();" /><br><br>
 
 </body>
 
