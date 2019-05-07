@@ -102,7 +102,7 @@
         function h5RouterApp(_params) {
             if (isNative()) {
                 try {
-                    window.nativeObject && window.nativeObject.handleMsgWithParam("router", JSON.stringify(params));
+                    window.nativeObject && window.nativeObject.handleMsgWithParam("router", JSON.stringify(_params));
                 } catch (e) {
                     console.error(e);
                 }
