@@ -117,6 +117,14 @@
             return false;
         };
 
+        function getMyStocks() {
+            var params = {}
+            if(window.nativeObject) {
+                var stocks = window.nativeObject.handleMsgWithParam("getMyStocks" ,JSON.stringify(params));
+                alert(stocks);
+            }
+        }
+
     </script>
 </head>
 <body>
@@ -139,6 +147,8 @@
     <input type="button" class="button" value="Router跳转-Native" onclick="routerNative();" /><br><br>
 
     <input type="button" class="button" value="testRouterNative" onclick="testRouterNative();" /><br><br>
+
+    <input type="button" class="button" value="getMyStocks" onclick="getMyStocks();" /><br><br>
 
 </body>
 
