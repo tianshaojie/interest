@@ -131,6 +131,10 @@
             alert(stocks);
         }
     }
+	
+    function getLocationCallback(String locationStr) {
+	alert(locationStr);
+    }
 
 
     //OpenInstall初始化时将与openinstall服务器交互，应尽可能早的调用
@@ -183,6 +187,8 @@
 	
     <a href="#" onclick="result = nativeObject.handleMsgWithParam('getHeaders', ''); alert('result:' + result)" class="button">getHeaders</a><br><br>
 	
+    <a href="#" onclick="nativeObject.handleMsgWithParam('getLocation', '');" class="button">getLocation</a><br><br>
+	
     <a href="htopen://trade/LOFStock?cnFundType=1&fundCode=000001" class="button" >trade-buy</a><br><br>
 	
     <a href="htopen://invest/invest" class="button" >投顾</a><br><br>
@@ -191,7 +197,7 @@
 
     <input type="button" class="button" id="downloadButton" value="OpenInstall下载或唤起APP" /><br><br>
 
-	<a href="htopen://defaultbrowser?title=数据中心&url=https%3A%2F%2Fgj.cnht.com.cn%3A9443%2FhomepageSTD%2F%23%2F%3Fckey%3D5E70AD4B0003" class="button" >数据中心</a><br><br>
+    <a href="htopen://defaultbrowser?title=数据中心&url=https%3A%2F%2Fgj.cnht.com.cn%3A9443%2FhomepageSTD%2F%23%2F%3Fckey%3D5E70AD4B0003" class="button" >数据中心</a><br><br>
 
 </body>
 
