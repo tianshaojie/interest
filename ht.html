@@ -97,6 +97,13 @@
         window.nativeObject.handleMsgWithParam("router" ,JSON.stringify(params));
     }
 
+
+    function openBusinessPage() {
+        var url = "http://qybzt.cnht.com.cn:60004/#!/holderRights/600401";
+        window.nativeObject.handleMsgWithParam("openBusinessPage" ,url);
+    }
+
+
     function testRouterNative() {
         var params = {
             "url":"fzzqxf://simtrade/trading",
@@ -203,6 +210,7 @@
 
     <a href="htopen://trade/condition" class="button" >条件单</a><br><br>
 
+    <input type="button" class="button" value="业务办理" onclick="openBusinessPage();" /><br><br>
 </body>
 
 
