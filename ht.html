@@ -99,8 +99,10 @@
 
 
     function openBusinessPage() {
-        var url = "http://qybzt.cnht.com.cn:60004/#!/holderRights/600401";
-        window.nativeObject.handleMsgWithParam("openBusinessPage" ,url);
+	var params = {
+            "targetUrl":"http://qybzt.cnht.com.cn:60004/#!/holderRights/600401"
+        }
+        window.nativeObject.handleMsgWithParam("openBusinessHanding" ,JSON.stringify(params));
     }
 
 
