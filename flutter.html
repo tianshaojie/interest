@@ -21,6 +21,11 @@
 
 <script type="text/javascript">
  
+    function testUpload() {
+        console.log("testUpload");
+        window.nativeUploadFile && window.nativeUploadFile();
+    }
+
 	
     function nativeUploadFileCallback(locationStr) {
 	    alert(locationStr);
@@ -31,7 +36,7 @@
 </head>
 <body>
 
-    <input type="button" class="button" value="上传文件" onclick="nativeUploadFile();" /><br><br>
+    <input type="button" class="button" value="上传文件" onclick="testUpload();" /><br><br>
 
 </body>
 
