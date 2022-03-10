@@ -25,7 +25,7 @@
 
         // SEND DATA TO NATIVE
         function sendDataToNative() {
-            var value = { "name": "tashi" }
+            var value = { "action": "test" }
             window.chrome.webview.postMessage(value);
         }
         // Native回调H5的入口，通过e.data.action区分是那个方法的回调
