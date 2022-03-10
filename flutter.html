@@ -1,65 +1,66 @@
 <!DOCTYPE html>
-<html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>js</title>
     <style>
-        .alert {
-            padding: 20px;
-            background-color: #f44336;
+        .button {
+            background-color: #da4343;
+            border: none;
             color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
         }
 
-        .closebtn {
-            margin-left: 15px;
-            color: white;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .closebtn:hover {
-            color: black;
+        .button:active {
+            background-color: #da4343;
         }
     </style>
+
     <script type="text/javascript">
 
-        // SEND DATA TO FLUTTER
-        function sendDataToFlutter() {
+        // SEND DATA TO NATIVE
+        function sendDataToNative() {
             var value = { "name": "tashi" }
             window.chrome.webview.postMessage(value);
         }
-        // LISTEN DATA FROM FLUTTER
+        // Native回调H5的入口，通过e.data.action区分是那个方法的回调
         window.chrome.webview.addEventListener('message', function (e) {
             alert("messagereceived: " + JSON.stringify(e.data));
         });
 
-
-        function selectFile() {
-            var value = { "name": "selectFile" }
+        function login() {
+            var value = { "action": "login", "fromUrl": "https://quant.cnht.com.cn:20443" }
             window.chrome.webview.postMessage(value);
         }
 
+        function upload() {
+            var value = { "action": "upload", "type": "t0_csv" }
+            window.chrome.webview.postMessage(value);
+        }
+
+        function download() {
+            var value = { "action": "download", "type": "t0_csv" }
+            window.chrome.webview.postMessage(value);
+        }
 
     </script>
+
 </head>
 
 <body>
-    <h2>Alert Messages</h2>
 
-    <p>Click on the "x" symbol to close the alert message.</p>
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
-    </div>
-    <p>Click the button to display an alert box.</p>
-
-    <button onclick="sendDataToFlutter()">Send JSON Data to flutter</button>
-
-    <button onclick="selectFile()">浏览文件</button>
+    <button class="button" onclick="sendDataToNative()">测试</button>
+    <br /><br />
+    <button class="button" onclick="login()">调起登录</button>
+    <br /><br />
+    <button class="button" onclick="upload()">上传文件</button>
+    <br /><br />
+    <button class="button" onclick="download()">下载文件</button>
 
 </body>
 
