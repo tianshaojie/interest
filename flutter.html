@@ -23,54 +23,66 @@
 
     <script type="text/javascript">
 
-        // SEND DATA TO NATIVE
-        function sendDataToNative() {
-            var value = { "action": "test" }
-            window.chrome.webview.postMessage(value);
-        }
+        !function() {
+            window.nativeObject = undefined;
+            (window.chrome?.webview && (window.nativeObject = window.chrome.webview));
+            (window.webkit?.messageHandlers?.hthandler && (window.nativeObject = window.webkit.messageHandlers.hthandler));
+        }(window)
+
+        // // SEND DATA TO NATIVE
+        // function sendDataToNative() {
+        //     var value = { "action": "test" }
+        //     window.chrome.webview.postMessage(value);
+        // }
 
         // Windows调用方式
         // Native回调H5的入口，通过e.data.action区分是那个方法的回调
-        window.chrome.webview.addEventListener('message', function (e) {
+        window.nativeObject.addEventListener('message', function (e) {
             alert("messagereceived: " + JSON.stringify(e.data));
+            handleMessage(e.data);
         });
+
+        function handleMessage(data) {
+            alert(data);
+        };
+
         // Windows调用方式
         function login() {
             var value = { "action": "login", "fromUrl": "https://quant.cnht.com.cn:20443" }
-            window.chrome.webview.postMessage(value);
+            window.nativeObject.postMessage(value);
         }
         // Windows调用方式
         function upload() {
             var value = { "action": "upload", "type": "t0_csv" }
-            window.chrome.webview.postMessage(value);
+            window.nativeObject.postMessage(value);
         }
         // Windows调用方式
         function download() {
             var value = { "action": "download", "type": "t0_csv" }
-            window.chrome.webview.postMessage(value);
+            window.nativeObject.postMessage(value);
         }
         
         
-        // MacOS调用方式
-        // Native回调H5的入口，通过data.action区分是那个方法的回调
-        function handleMessage(data) {
-            alert(data);
-        };
-        // MacOS调用方式
-        function loginMacos() {
-            var value = { "action": "login", "fromUrl": "https://quant.cnht.com.cn:20443" }
-            window.webkit.messageHandlers.hthandler.postMessage(value);
-        }
-        // MacOS调用方式
-        function uploadMacos() {
-            var value = { "action": "upload", "type": "t0_csv" }
-            window.webkit.messageHandlers.hthandler.postMessage(value);
-        }
-        // MacOS调用方式
-        function downloadMacos() {
-            var value = { "action": "download", "type": "t0_csv" }
-            window.webkit.messageHandlers.hthandler.postMessage(value);
-        }
+        // // MacOS调用方式
+        // // Native回调H5的入口，通过data.action区分是那个方法的回调
+        // function handleMessage(data) {
+        //     alert(data);
+        // };
+        // // MacOS调用方式
+        // function loginMacos() {
+        //     var value = { "action": "login", "fromUrl": "https://quant.cnht.com.cn:20443" }
+        //     window.webkit.messageHandlers.hthandler.postMessage(value);
+        // }
+        // // MacOS调用方式
+        // function uploadMacos() {
+        //     var value = { "action": "upload", "type": "t0_csv" }
+        //     window.webkit.messageHandlers.hthandler.postMessage(value);
+        // }
+        // // MacOS调用方式
+        // function downloadMacos() {
+        //     var value = { "action": "download", "type": "t0_csv" }
+        //     window.webkit.messageHandlers.hthandler.postMessage(value);
+        // }
 
     </script>
 
@@ -79,17 +91,17 @@
 <body>
 
     <!-- <button class="button" onclick="sendDataToNative()">测试</button> -->
-    <button class="button" onclick="login()">调起登录-Windows</button>
+    <button class="button" onclick="login()">调起登录</button>
     <br /><br />
-    <button class="button" onclick="upload()">上传文件-Windows</button>
+    <button class="button" onclick="upload()">上传文件</button>
     <br /><br />
-    <button class="button" onclick="download()">下载文件-Windows</button>
-    <br /><br />
+    <button class="button" onclick="download()">下载文件</button>
+    <!-- <br /><br />
     <button class="button" onclick="loginMacos()">调起登录-MacOS</button>
     <br /><br />
     <button class="button" onclick="uploadMacos()">上传文件-MacOS</button>
     <br /><br />
-    <button class="button" onclick="downloadMacos()">下载文件-MacOS</button>
+    <button class="button" onclick="downloadMacos()">下载文件-MacOS</button> -->
 
 </body>
 
