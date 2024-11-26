@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Player</title>
+    <title>Styled Audio Player</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        audio {
+            width: 100%;
+            background-color: #add8e6; /* 淡蓝色背景 */
+            padding: 15px; /* 内边距 */
+        }
+    </style>
 </head>
 <body>
-    <audio id="audioPlayer" controls autoplay>
+    <audio controls autoplay>
         <source src="https://astatic.oss-cn-beijing.aliyuncs.com/speech.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
